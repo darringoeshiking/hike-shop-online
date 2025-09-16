@@ -1,0 +1,148 @@
+/* Body styling */
+body {
+  font-family: 'Cabin', sans-serif;
+  background-color: #f5f5f0;
+  margin: 20px;
+  padding: 0;
+}
+
+/* App title */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4b2e0f; /* dark earthy brown */
+}
+
+/* Filter panel */
+#filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+/* Trail list container */
+#trail-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Trail card */
+.trail-card {
+  background-color: #6b8e23; /* olive green */
+  border: 5px solid #4b2e0f; /* dark brown stroke */
+  border-radius: 10px;
+  width: 450px;
+  padding: 15px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+/* Hover effect */
+.trail-card:hover {
+  transform: scale(1.02);
+}
+
+/* Trail header */
+.trail-card h2 {
+  text-align: center;
+  margin: 10px 0;
+  color: white;
+}
+
+/* Leaflet map */
+.trail-card .leaflet-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Trail info */
+.trail-card p {
+  margin: 5px 0 10px 0;
+  text-align: center;
+}
+
+/* Feature section */
+.features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Expand button */
+.expand-btn {
+  width: 200px;
+  background-color: white;
+  color: #6b8e23; /* matches card background */
+  border: none;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Feature buttons list */
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* Individual feature button */
+.feature-tag {
+  background-color: #4b2e0f; /* dark brown */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 0.85rem;
+  cursor: default;
+}
+
+/* Filter toggle button */
+#filter-toggle {
+  background-color: #4b2e0f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Search bar */
+#search {
+  width: 100%;
+  max-width: 450px;
+  padding: 10px;
+  margin: 0 auto 20px auto;
+  display: block;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #4b2e0f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .trail-card {
+    width: 40%;
+  }
+}
+
+@media (max-width: 700px) {
+  .trail-card {
+    width: 90%;
+  }
+}

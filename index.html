@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hike Shop</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+</head>
+<body>
+
+  <h1>The Hike Shop</h1>
+
+  <!-- Collapsible Filter Panel -->
+  <button id="filter-toggle">Show / Hide Filters</button>
+  <div id="filter-panel" style="display:none; margin-bottom:20px; text-align:center;">
+    <div>
+      <label for="region-filter">Region:</label>
+      <select id="region-filter">
+        <option value="">All</option>
+        <option value="North">North</option>
+        <option value="Central">Central</option>
+        <option value="South">South</option>
+      </select>
+    </div>
+    <div>
+      <label for="difficulty-filter">Difficulty:</label>
+      <select id="difficulty-filter">
+        <option value="">All</option>
+        <option value="Easy">Easy</option>
+        <option value="Moderate">Moderate</option>
+        <option value="Hard">Hard</option>
+        <option value="Strenuous">Strenuous</option>
+      </select>
+    </div>
+    <div>
+      <label>Features:</label>
+      <div id="feature-filters" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:5px;">
+        <label><input type="checkbox" value="waterfall"> Waterfall</label>
+        <label><input type="checkbox" value="overlook_vista"> Overlook</label>
+        <label><input type="checkbox" value="stream_crossing"> Stream Crossing</label>
+        <label><input type="checkbox" value="rock_scramble"> Rock Scramble</label>
+        <label><input type="checkbox" value="wildlife"> Wildlife</label>
+        <label><input type="checkbox" value="historic"> Historic</label>
+        <label><input type="checkbox" value="fall_foliage_favorite"> Fall Foliage</label>
+        <label><input type="checkbox" value="permit"> Permit</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <input type="text" id="search" placeholder="Search trails by name...">
+
+  <!-- Trail Cards -->
+  <div id="trail-list"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Filter toggle
+    const filterToggle = document.getElementById('filter-toggle');
+    const filterPanel = document.getElementById('filter-panel');
+
+    filterToggle.addEventListener('click', () => {
+      filterPanel.style.display = filterPanel.style.display === 'none' ? 'block' : 'none';
+    });
+  </script>
+
+</body>
+</html>
