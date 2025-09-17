@@ -93,6 +93,20 @@ function displayTrails(list) {
           attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
         L.marker([lat, lng]).addTo(map).bindPopup(trail.trail_name || '');
+
+        // --- GPX Layer ---
+        if (trail.gpx_url) {
+          new L.GPX(trail.gpx_url, {
+            async: true,
+            marker_options: {
+              startIconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+              endIconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+              shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
+            }
+          }).on('loaded', function(e) {
+            map.fitBounds(e.target.getBounds());
+          }).addTo(map);
+        }
       });
     } else {
       mapDiv.textContent = 'Map not available';
