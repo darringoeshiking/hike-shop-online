@@ -1873,7 +1873,8 @@
     "permit": false,
     "trail_access": "Parking area",
     "trailhead_coordinates_latitude": 38.6651,
-    "trailhead_coordinates_longitude": -78.4342
+    "trailhead_coordinates_longitude": -78.4342,
+    "gpx_url: "
   },
   {
     "trail_name": "Whiteoak Falls (Lower) Trail",
