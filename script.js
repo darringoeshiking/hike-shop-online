@@ -41,7 +41,7 @@ function displayTrails(list) {
 
     // Trail Info: Region, Difficulty, Length
     const info = document.createElement('p');
-    info.textContent = `Region: ${trail.region || 'N/A'} | Difficulty: ${trail.difficulty || 'N/A'} | Length: ${trail.length_miles?.toFixed(1) || 'N/A'} miles`;
+    info.textContent = `Region: ${trail.region || 'N/A'} | Difficulty: ${trail.difficulty || 'N/A'} | Length: ${trail.length_miles || 'N/A'} miles`;
     info.style.textAlign = 'center';
     card.appendChild(info);
 
@@ -92,27 +92,7 @@ function displayTrails(list) {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
-
-        // Marker at trailhead
         L.marker([lat, lng]).addTo(map).bindPopup(trail.trail_name || '');
-
-        // Load GPX if available
-        if (trail.gpx_url) {
-          try {
-            new L.GPX(trail.gpx_url, {
-              async: true,
-              marker_options: {
-                startIconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-                endIconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-                shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
-              }
-            }).on('loaded', function(e) {
-              map.fitBounds(e.target.getBounds());
-            }).addTo(map);
-          } catch (err) {
-            console.warn(`Failed to load GPX for ${trail.trail_name}:`, err);
-          }
-        }
       });
     } else {
       mapDiv.textContent = 'Map not available';
